@@ -92,9 +92,9 @@ public class CameraControl : MonoBehaviour
             charPosition.z = ClampVector2(charPosition.z, _limitPositionZ);
         }
 
-        //transform.position = charPosition;
+        transform.position = charPosition;
         //transform.position = Vector3.Lerp(transform.position, charPosition, _lerpSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(transform.position, charPosition, _lerpSpeed * Time.fixedDeltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, charPosition, _lerpSpeed * Time.fixedDeltaTime);
     }
 
     private void RotateCamera()
