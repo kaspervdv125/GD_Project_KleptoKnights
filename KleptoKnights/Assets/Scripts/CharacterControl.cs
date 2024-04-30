@@ -29,7 +29,7 @@ public class CharacterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        _input = new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical1"));
         SetTargetAngle();
     }
 
