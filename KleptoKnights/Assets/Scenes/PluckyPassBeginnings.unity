@@ -170,8 +170,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cameraY: {fileID: 1862648577}
   _characterControl: {fileID: 1950648142}
+  _lerpSpeed: 0
   _rotationSpeed: 60
   _yLimitRotation: {x: 10, y: 80}
+  _FOV: 60
+  _FOVSteps: []
+  _zoomSpeed: 0
   _limitPositionX: {x: -20, y: 20}
   _limitPositionY: {x: -5, y: 5}
   _limitPositionZ: {x: -15, y: 15}
@@ -1146,7 +1150,6 @@ GameObject:
   - component: {fileID: 1950648140}
   - component: {fileID: 1950648141}
   - component: {fileID: 1950648142}
-  - component: {fileID: 1950648143}
   - component: {fileID: 1950648144}
   m_Layer: 0
   m_Name: CaptainToad
@@ -1211,34 +1214,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _acceleration: 1
   _dragOnGround: 10
-  _maxMovementSpeed: 10
+  _maxWalkingSpeed: 10
+  _maxRunningSpeed: 15
   _rotationSpeed: 10
   _velocity: {x: 0, y: 0, z: 0}
-  _chrControl: {fileID: 1950648141}
-  _isFalling: 0
+  ChrControl: {fileID: 1950648141}
   _previousIsGrounded: 1
-  _distanceBeforeFall: 2
---- !u!65 &1950648143
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950648138}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
+  IsClimbingLadder: 0
+  _topLadderJump: 0.2
+  _layerMask:
     serializedVersion: 2
     m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1.2, y: 0, z: 1.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1950648144
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,11 +12,20 @@ public class CameraControl : MonoBehaviour
     private CharacterControl _characterControl;
 
     [SerializeField]
-    private float _rotationSpeed;
+    private float _lerpSpeed, _rotationSpeed;
     private float _rotationHorizontal, _rotationVertical = 30;
 
     [SerializeField]
     private Vector2 _yLimitRotation;
+
+    [SerializeField]
+    private float _FOV = 60;
+    private int _FOVIndex = 0;
+
+    [SerializeField]
+    private float[] _FOVSteps;
+    [SerializeField]
+    private float _zoomSpeed;
 
     [Space]
     [Header("Position Limits")]
@@ -25,6 +34,8 @@ public class CameraControl : MonoBehaviour
     private Vector2 _limitPositionX;
     [SerializeField]
     private Vector2 _limitPositionY, _limitPositionZ;
+
+    private bool _isZoom, _isLerping;
 
     // Start is called before the first frame update
     void Start()
@@ -36,27 +47,59 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RotateCamera();
+
+        //if (Input.GetButtonDown("Zoom"))
+        //{
+        //    _isZoom = true;
+        //    _isLerping = true;
+        //}
+    }
+
+    private void FixedUpdate()
+    {
         SetPosition();
 
-        //RotateCamera();
-        //RotateCharacter();
+        if (_characterControl.ChrControl.isGrounded)
+            RotateCharacter();
+
+        //Zoom();
+    }
+
+    private void Zoom()
+    {
+        float targetFOV = _FOVSteps[_FOVIndex];
+
+        _FOV = Mathf.Lerp(_FOV, targetFOV, _zoomSpeed * Time.deltaTime);
+        Camera.main.fieldOfView = _FOV;
+
+        if (_isZoom)
+        {
+            _FOVIndex++;
+            _FOVIndex %= _FOVSteps.Length;
+            _isZoom = false;
+        }
     }
 
     private void SetPosition()
     {
-        Vector3 charPosition = _characterControl.transform.position;
-        charPosition.x = ClampVector2(charPosition.x, _limitPositionX);
-        charPosition.y = ClampVector2(charPosition.y, _limitPositionY);
-        charPosition.z = ClampVector2(charPosition.z, _limitPositionZ);
+        Vector3 charPosition = _characterControl.transform.position + Vector3.up;
 
-        transform.position = charPosition;
+        if (_FOVIndex == 0)
+        {
+            charPosition.x = ClampVector2(charPosition.x, _limitPositionX);
+            charPosition.y = ClampVector2(charPosition.y, _limitPositionY);
+            charPosition.z = ClampVector2(charPosition.z, _limitPositionZ);
+        }
+
+        //transform.position = charPosition;
+        //transform.position = Vector3.Lerp(transform.position, charPosition, _lerpSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, charPosition, _lerpSpeed * Time.fixedDeltaTime);
     }
 
     private void RotateCamera()
     {
         float inputHorizontal = Input.GetAxis("Horizontal2"), inputVertical = Input.GetAxis("Vertical2");
-
-        Debug.Log(inputHorizontal + " " + inputVertical);
 
         if (Mathf.Abs(inputHorizontal) >= Mathf.Abs(inputVertical))
         {
