@@ -56,7 +56,8 @@ public class Character : MonoBehaviour
     {
         SetControlRotation();
 
-        
+        GetInteractable();
+        CameraBoomArm();
 
         Interact();
         
@@ -66,8 +67,7 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         MoveCharacter();
-        GetInteractable();
-        CameraBoomArm();
+
     }
 
     private void Interact()
@@ -101,7 +101,7 @@ public class Character : MonoBehaviour
         Vector3 camForward = Vector3.Scale(cameraEmpty.transform.forward, new Vector3(1,0,1)).normalized ;
         Vector3 camRight = Vector3.Scale(cameraEmpty.transform.right, new Vector3(1,0,1)).normalized;
         
-        Vector3 inputDirection = Vector3.ClampMagnitude(camForward * Input.GetAxis("Vertical") + camRight * Input.GetAxis("Horizontal"), 1f);
+        Vector3 inputDirection = Vector3.ClampMagnitude(camForward * Input.GetAxis("Vertical1") + camRight * Input.GetAxis("Horizontal1"), 1f);
 
         inputDirection *= CurrentSpeed;
         inputDirection.y = _gravity;
