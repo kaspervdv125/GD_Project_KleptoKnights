@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterControl : MonoBehaviour
+public class ToadCharacterControl : MonoBehaviour
 {
     private Vector2 _input;
 
@@ -32,6 +32,7 @@ public class CharacterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(ChrControl.isGrounded);
         _input = new Vector2(Input.GetAxis("Horizontal1"), Input.GetAxis("Vertical1"));
     }
 

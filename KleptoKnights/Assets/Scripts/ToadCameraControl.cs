@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraControl : MonoBehaviour
+public class ToadCameraControl : MonoBehaviour
 {
     [SerializeField]
     private Transform _cameraY;
 
     [SerializeField]
-    private CharacterControl _characterControl;
+    private ToadCharacterControl _characterControl;
 
     [SerializeField]
     private float _lerpSpeed, _rotationSpeed;
