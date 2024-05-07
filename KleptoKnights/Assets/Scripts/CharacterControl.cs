@@ -39,7 +39,7 @@ public class CharacterControl : MonoBehaviour
     {
         if (PlayerNumber == 1)
         {
-            Debug.Log(_movementState);
+            //Debug.Log(_movementState);
         }
 
         SetMovementState();
