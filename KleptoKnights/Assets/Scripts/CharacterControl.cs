@@ -16,7 +16,7 @@ public class CharacterControl : MonoBehaviour
 
     private MovementState _movementState = MovementState.Walking;
 
-    [Range(1, 2)]
+    [Range(1, 4)]
     public int PlayerNumber;
     
     private Vector2 _input;
@@ -37,11 +37,6 @@ public class CharacterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerNumber == 1)
-        {
-            Debug.Log(_movementState);
-        }
-
         SetMovementState();
         UpdateInput();
 
@@ -86,8 +81,6 @@ public class CharacterControl : MonoBehaviour
         }
 
         _characterController.Move(_velocity * Time.fixedDeltaTime);
-
-        _camera.transform.position = transform.position + Vector3.up;
     }
 
     private void RotateCharacter()

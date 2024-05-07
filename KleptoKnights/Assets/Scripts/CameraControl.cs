@@ -28,16 +28,92 @@ public class CameraControl : MonoBehaviour
         _rotationHorizontal = transform.eulerAngles.y;
         _rotationVertical = _cameraY.eulerAngles.x;
 
+        int playerCount = FindObjectsOfType<CharacterController>().Length;
 
+        switch (playerCount)
+        {
+            case 1:
+                OnePlayerCam();
+                break;
+            case 2:
+                TwoPlayerCam();
+                break;
+            case 3:
+                ThreePlayerCam();
+                break;
+            case 4:
+                FourPlayerCam();
+                break;
+            default:
+                throw new Exception("Invalid PlayerCount.");
+        }
+    }
+
+    private void FourPlayerCam()
+    {
         Camera camera = transform.GetComponentInChildren<Camera>();
-        if (PlayerNumber == 1)
+
+        switch (PlayerNumber)
         {
-            camera.rect = new Rect(0, 0, 0.5f, 1);
+            case 1:
+                camera.rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+                break;
+            case 2:
+                camera.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+                break;
+            case 3:
+                camera.rect = new Rect(0, 0, 0.5f, 0.5f);
+                break;
+            case 4:
+                camera.rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+                break;
+            default:
+                throw new Exception("Invalid PlayerNumber");
         }
-        else if (PlayerNumber == 2)
+    }
+
+    private void ThreePlayerCam()
+    {
+        Camera camera = transform.GetComponentInChildren<Camera>();
+
+        switch (PlayerNumber)
         {
-            camera.rect = new Rect(0.5f, 0, 0.5f, 1);
+            case 1:
+                camera.rect = new Rect(0, 0, 0.5f, 1);
+                break;
+            case 2:
+                camera.rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+                break;
+            case 3:
+                camera.rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+                break;
+            default:
+                throw new Exception("Invalid PlayerNumber");
         }
+    }
+
+    private void TwoPlayerCam()
+    {
+        Camera camera = transform.GetComponentInChildren<Camera>();
+        
+        switch (PlayerNumber)
+        {
+            case 1:
+                camera.rect = new Rect(0, 0, 0.5f, 1);
+                break;
+            case 2:
+                camera.rect = new Rect(0.5f, 0, 0.5f, 1);
+                break;
+            default:
+                throw new Exception("Invalid PlayerNumber");
+        }
+    }
+
+    private void OnePlayerCam()
+    {
+        Camera camera = transform.GetComponentInChildren<Camera>();
+
+        camera.rect = new Rect(0, 0, 1, 1);
     }
 
     // Update is called once per frame
