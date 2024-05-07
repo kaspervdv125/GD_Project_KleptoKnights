@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    private int currentHealth;
+    public int maxHealth = 50;
+    public int currentHealth;
+
+    public GameObject blood;
 
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int attackDamage)
     {
         Debug.Log("Enemy taking damage!");
-        currentHealth -= damageAmount;
+        Instantiate(blood, transform.position, Quaternion.identity);
+        currentHealth -= attackDamage;
 
         // Check if the enemy has been defeated
         if (currentHealth <= 0)
         {
+            Instantiate(blood, transform.position, Quaternion.identity);
             Die();
         }
     }
