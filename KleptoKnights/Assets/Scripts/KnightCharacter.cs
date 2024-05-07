@@ -10,8 +10,8 @@ public class KnightCharacter : MonoBehaviour
     [SerializeField] private Camera camera;
     
     // Interaction
-    private Interactable _interactionTarget;
-    private Pickup _heldItem;
+    private IInteractable _interactionTarget;
+    private GameObject _heldItem;
     private bool _isInteracting;
     private float _gravity;
     public float MoveSpeed { get; private set; } = 6f;
