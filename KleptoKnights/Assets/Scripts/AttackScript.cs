@@ -11,10 +11,13 @@ public class AttackScript : MonoBehaviour
     private float attackCooldownTimer = 0f;
     public float attackCooldown = 1f;
 
+    private int _playerNumber;
+
     Animator animator;
 
     void Start()
     {
+        _playerNumber = GetComponent<CharacterControl>().PlayerNumber;
         animator = GetComponent<Animator>();
     }
 
@@ -25,7 +28,7 @@ public class AttackScript : MonoBehaviour
             attackCooldownTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && attackCooldownTimer <= 0f)
+        if (Input.GetButtonDown($"Attack {_playerNumber}") && attackCooldownTimer <= 0f)
         {
             Attack();
             attackCooldownTimer = attackCooldown;
