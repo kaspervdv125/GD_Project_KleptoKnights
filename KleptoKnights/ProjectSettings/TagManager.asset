@@ -6,15 +6,16 @@ TagManager:
   tags:
   - Undefined
   - PickUp
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemies
   - Water
   - UI
-  - 
-  - 
+  - Team 1
+  - Team 2
   - 
   - 
   - 
