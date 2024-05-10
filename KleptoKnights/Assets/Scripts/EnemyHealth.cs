@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject blood;
 
+    public UI Ui;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -19,6 +21,8 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("Enemy taking damage!");
         Instantiate(blood, transform.position, Quaternion.identity);
         currentHealth -= attackDamage;
+
+        Ui.HealthBar.value = currentHealth;
 
         // Check if the enemy has been defeated
         if (currentHealth <= 0)
