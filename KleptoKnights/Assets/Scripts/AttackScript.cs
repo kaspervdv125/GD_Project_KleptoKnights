@@ -6,6 +6,7 @@ public class AttackScript : MonoBehaviour
 {
     public float attackRange = 1f; // Adjust this value to set the attack range
     public LayerMask enemyLayer; // Set this in the Unity inspector to the layer where your enemies are
+    
 
     private bool isAttacking = false;
     private float attackCooldownTimer = 0f;
@@ -49,7 +50,6 @@ public class AttackScript : MonoBehaviour
     void Attack()
     {
         isAttacking = true;
-
         // Detect enemies within attack range
         Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
 
@@ -61,6 +61,7 @@ public class AttackScript : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(10); // Adjust the damage value as needed
+                
             }
         }
 

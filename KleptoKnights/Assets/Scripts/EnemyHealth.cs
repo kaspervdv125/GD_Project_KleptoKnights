@@ -6,28 +6,33 @@ public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 50;
     public int currentHealth;
+    public ParticleSystem hitParticle;
 
-    public GameObject blood;
 
     public UI Ui;
 
     void Start()
     {
         currentHealth = maxHealth;
+        hitParticle = GetComponentInChildren<ParticleSystem>();
+
     }
 
     public void TakeDamage(int attackDamage)
     {
         Debug.Log("Enemy taking damage!");
-        Instantiate(blood, transform.position, Quaternion.identity);
         currentHealth -= attackDamage;
 
-        Ui.HealthBar.value = currentHealth;
+        if (hitParticle != null)
+        {
+            hitParticle.Play();
+        }
+
+       // Ui.HealthBar.value = currentHealth;
 
         // Check if the enemy has been defeated
         if (currentHealth <= 0)
         {
-            Instantiate(blood, transform.position, Quaternion.identity);
             Die();
         }
     }
