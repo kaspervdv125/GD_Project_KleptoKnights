@@ -49,7 +49,7 @@ public class Interaction : MonoBehaviour
 
     private void SetIsInteractDown()
     {
-        IsInteractDown = Input.GetButton($"Pickup {_playerNumber}") | Input.GetMouseButton(0);
+        IsInteractDown = Input.GetButtonDown($"Pickup {_playerNumber}") | Input.GetMouseButton(0);
     }
 
     private void Interact()
@@ -88,10 +88,10 @@ public class Interaction : MonoBehaviour
         return Physics.OverlapSphere(transform.position, interactionRadius, LayerMask.GetMask("Interactable"));
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, 2.5f);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireSphere(transform.position, 2.5f);
+    //}
 
     //Iterates through each found interactactable GameObject and selects the most front-facing one.
     private IInteractable InteractionFilter(Collider[] interactables)
