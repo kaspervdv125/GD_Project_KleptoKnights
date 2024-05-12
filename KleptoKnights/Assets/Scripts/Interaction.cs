@@ -79,14 +79,20 @@ public class Interaction : MonoBehaviour
 
     private Collider[] InteractionRaycast()
     {
-        float interactionRadius = 5f;
+        float interactionRadius = 2.5f;
         // Collider[] overlapSphere = new Collider[20];
         
         // Physics.OverlapSphereNonAlloc(transform.position, interactionRadius, overlapSphere, LayerMask.GetMask("Interactable"));
+
         
         return Physics.OverlapSphere(transform.position, interactionRadius, LayerMask.GetMask("Interactable"));
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, 2.5f);
+    }
+
     //Iterates through each found interactactable GameObject and selects the most front-facing one.
     private IInteractable InteractionFilter(Collider[] interactables)
     {

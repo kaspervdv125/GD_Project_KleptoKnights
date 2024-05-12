@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<Pickup1> _items;
+    private List<Pickup1> _items = new List<Pickup1>();
     [SerializeField] private float handOffset = .5f;
     
 
@@ -23,6 +23,7 @@ public class Inventory : MonoBehaviour
         }
         
         itemTransform.parent = transform.parent;
+        itemTransform.localPosition = Vector3.zero;
         itemTransform.localPosition += localOffset;
         _items.Add(newItem);
         
