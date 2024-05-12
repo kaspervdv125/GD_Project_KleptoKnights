@@ -49,7 +49,7 @@ public class Interaction : MonoBehaviour
 
     private void SetIsInteractDown()
     {
-        IsInteractDown = Input.GetButton($"Pickup {_playerNumber}");
+        IsInteractDown = Input.GetButton($"Pickup {_playerNumber}") | Input.GetMouseButton(0);
     }
 
     private void Interact()
@@ -65,7 +65,14 @@ public class Interaction : MonoBehaviour
 
     private void GetInteractable()
     {
-        _interactionTarget = InteractionFilter(InteractionRaycast());
+        var target = InteractionFilter(InteractionRaycast());
+        if (target == null)
+        {
+            _interactionTarget = null;
+            return;
+        }
+
+        _interactionTarget = target ;
     }
 
 
@@ -73,11 +80,11 @@ public class Interaction : MonoBehaviour
     private Collider[] InteractionRaycast()
     {
         float interactionRadius = 5f;
-        Collider[] overlapSphere = new Collider[20];
+        // Collider[] overlapSphere = new Collider[20];
         
-        Physics.OverlapSphereNonAlloc(transform.position, interactionRadius, overlapSphere, LayerMask.GetMask("Interactable"));
+        // Physics.OverlapSphereNonAlloc(transform.position, interactionRadius, overlapSphere, LayerMask.GetMask("Interactable"));
         
-        return overlapSphere;
+        return Physics.OverlapSphere(transform.position, interactionRadius, LayerMask.GetMask("Interactable"));
     }
     
     //Iterates through each found interactactable GameObject and selects the most front-facing one.
@@ -89,8 +96,9 @@ public class Interaction : MonoBehaviour
 
         foreach (var interactable in interactables)
         {
-            if (!interactable.TryGetComponent<IInteractable>(out var component ) && target == component ) continue;
-
+            if (!interactable.gameObject.TryGetComponent<IInteractable>(out var component ) && target == component ) continue;
+            target ??= component;
+            
             // figure out proper names for these variables lol
             var position = transform.position;
             
