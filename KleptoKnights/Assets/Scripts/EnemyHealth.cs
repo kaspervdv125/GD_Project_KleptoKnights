@@ -8,7 +8,12 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 50;
     public int currentHealth;
     public ParticleSystem hitParticle;
-    [SerializeField] private int teamNumber;
+    [SerializeField]
+    [Range(1, 2)]
+    private int teamNumber;
+
+    [SerializeField]
+    private Transform _spawn;
 
     public UI Ui;
 
@@ -45,7 +50,11 @@ public class EnemyHealth : MonoBehaviour
         // Destroy(gameObject); // Destroy the enemy game object
 
         var spawn =  GameObject.FindGameObjectWithTag($"SpawnTeam{teamNumber}");
+
+        GetComponent<CharacterController>().enabled = false;
         gameObject.transform.position = spawn.transform.position;
+        GetComponent<CharacterController>().enabled = true;
+
         currentHealth = maxHealth;
         Ui.HealthBar.value = currentHealth;
     }

@@ -31,6 +31,8 @@ public class AttackScript : MonoBehaviour
 
         if (Input.GetButtonDown($"Attack {_playerNumber}") && attackCooldownTimer <= 0f)
         {
+            Debug.Log("Attack");
+
             Attack();
             attackCooldownTimer = attackCooldown;
         }

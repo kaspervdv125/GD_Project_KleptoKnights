@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1229743759989483422}
   m_Layer: 8
   m_Name: InteractableObject
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,4 +159,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3c5ce11f05a4f4cb229f40ae3df05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 0
+  Value: 20

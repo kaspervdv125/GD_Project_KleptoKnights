@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -21,7 +20,7 @@ public class Inventory : MonoBehaviour
             var newBounds = GetMaxBounds(newItem.gameObject);
             var lastBounds = GetMaxBounds(_items.Last().gameObject);
 
-            localOffset.y += lastBounds.extents.y + newBounds.extents.y + lastBounds.center.y;
+            localOffset.y = lastBounds.extents.y + newBounds.extents.y + _items.Last().transform.localPosition.y;
         }
         else
         {
@@ -40,6 +39,11 @@ public class Inventory : MonoBehaviour
 
     public void DropItem()
     {
+        if (_items.Count == 0)
+        {
+            return;
+        }
+
         _items.Last().transform.parent = null;
         _items.Last().EndInteract(gameObject);
 

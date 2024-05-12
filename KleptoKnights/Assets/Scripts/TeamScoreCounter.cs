@@ -9,6 +9,8 @@ public class TeamScoreCounter : MonoBehaviour
 
     public UI[] _playerUis;
 
+    public LayerMask ObjectLayers;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,20 +32,32 @@ public class TeamScoreCounter : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(name + ": " + TeamScore);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
-        {
-            TeamScore += other.gameObject.GetComponent<ObjectValue>().Value;
+        //if (other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
+        //{
+        //    TeamScore += other.gameObject.GetComponent<ObjectValue>().Value;
 
-            SetPlayerScore();
+        //    SetPlayerScore();
+        //}
+
+        CalculateScore();
+        SetPlayerScore();
+    }
+
+    private void CalculateScore()
+    {
+        BoxCollider boxCollider = GetComponent<BoxCollider>();
+        Collider[] colliders = Physics.OverlapBox(boxCollider.center + transform.position, boxCollider.size / 2, Quaternion.identity, ObjectLayers, QueryTriggerInteraction.Collide);
+
+        int tempScore = 0;
+
+        foreach (var collider in colliders)
+        {
+            tempScore += collider.GetComponent<ObjectValue>().Value;
         }
+
+        TeamScore = tempScore;
     }
 
     private void SetPlayerScore()
@@ -56,16 +70,14 @@ public class TeamScoreCounter : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
-        {
-            TeamScore -= other.gameObject.GetComponent<ObjectValue>().Value;
-            SetPlayerScore();
-        }
-    }
+        //if (other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
+        //{
+        //    TeamScore -= other.gameObject.GetComponent<ObjectValue>().Value;
+        //    SetPlayerScore();
+        //}
 
-    private void OnTriggerStay(Collider other)
-    {
-        
+        CalculateScore();
+        SetPlayerScore();
     }
 
     private void OnDrawGizmos()
