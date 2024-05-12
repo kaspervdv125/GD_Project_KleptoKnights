@@ -24,11 +24,12 @@ public class Pickup1 : MonoBehaviour, IInteractable
    public void StartInteract(GameObject interactor)
    {
        interactor.GetComponent<Inventory>()?.AddItem(this);
-       
+       IsHeld = true;
+
    }
 
    public void EndInteract(GameObject interactor)
    {
-       throw new System.NotImplementedException();
+       IsHeld = false;
    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,13 +7,13 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     private List<Pickup1> _items = new List<Pickup1>();
-    [SerializeField] private float handOffset = .5f;
+    private float handOffset = 1.5f;
     
 
     public void AddItem(Pickup1 newItem)
     {
         var itemTransform = newItem.transform;
-        Vector3 localOffset = transform.forward * handOffset;
+        Vector3 localOffset = new Vector3(0, 0, handOffset);
 
         if (_items.Count >= 1)
         {
@@ -22,9 +23,8 @@ public class Inventory : MonoBehaviour
             localOffset.y += lastBounds.extents.y + newBounds.extents.y;
         }
         
-        itemTransform.parent = transform.parent;
-        itemTransform.localPosition = Vector3.zero;
-        itemTransform.localPosition += localOffset;
+        itemTransform.parent = transform;
+        itemTransform.localPosition = localOffset;
         _items.Add(newItem);
         
     }
@@ -32,6 +32,7 @@ public class Inventory : MonoBehaviour
     public void DropItem()
     {
         _items.Last().transform.parent = null;
+        _items.Last().EndInteract(gameObject);
         _items.Remove(_items.Last());
     }
 
@@ -47,5 +48,11 @@ public class Inventory : MonoBehaviour
             b.Encapsulate(r.bounds);
         }
         return b;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Vector3 drawPosition = transform.position + transform.forward * handOffset + transform.up * 1f;
+        Gizmos.DrawWireSphere(drawPosition, .5f);
     }
 }
