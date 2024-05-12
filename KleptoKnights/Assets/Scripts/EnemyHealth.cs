@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 50;
     public int currentHealth;
     public ParticleSystem hitParticle;
-
+    [SerializeField] private int teamNumber;
 
     public UI Ui;
 
@@ -41,7 +42,12 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         // Handle enemy death, such as playing death animation, giving player points, etc.
-        Destroy(gameObject); // Destroy the enemy game object
+        // Destroy(gameObject); // Destroy the enemy game object
+
+        var spawn =  GameObject.FindGameObjectWithTag($"SpawnTeam{teamNumber}");
+        gameObject.transform.position = spawn.transform.position;
+        currentHealth = maxHealth;
+        Ui.HealthBar.value = currentHealth;
     }
 
 }

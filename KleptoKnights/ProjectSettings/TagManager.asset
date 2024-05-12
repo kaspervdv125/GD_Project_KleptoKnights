@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Team 1
   - Team 2
+  - SpawnTeam1
+  - SpawnTeam2
   layers:
   - Default
   - TransparentFX
