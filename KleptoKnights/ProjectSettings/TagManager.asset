@@ -7,6 +7,8 @@ TagManager:
   - Undefined
   - PickUp
   - Enemy
+  - Team 1
+  - Team 2
   layers:
   - Default
   - TransparentFX

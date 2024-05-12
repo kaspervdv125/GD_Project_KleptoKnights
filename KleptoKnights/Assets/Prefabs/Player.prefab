@@ -32,7 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5586197239928656141}
-  - {fileID: 1274381867936365858}
+  - {fileID: 235385731733109854}
   m_Father: {fileID: 7694758653962087666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 8375100261874018525}
   - component: {fileID: 5662850784215935636}
   m_Layer: 6
-  m_Name: Score Text
+  m_Name: Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,15 +240,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035447875300173388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -113.00013}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10.000359}
+  m_LocalScale: {x: 3.902439, y: 0.4316112, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5977766508261660925}
+  m_Father: {fileID: 5586197239928656141}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 263.9169}
+  m_AnchoredPosition: {x: 0, y: 11.651947}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8375100261874018525
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 9129836621838781175}
   - component: {fileID: 4573414215540247298}
   m_Layer: 6
-  m_Name: Text (TMP)
+  m_Name: Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -481,15 +481,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2519252125495648705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 108.9999}
-  m_LocalScale: {x: 3.7560976, y: 0.43161124, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 5.999866}
+  m_LocalScale: {x: 0.9625, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5586197239928656141}
+  m_Father: {fileID: 5977766508261660925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 25.392105}
+  m_AnchoredPosition: {x: 0, y: -41.000145}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9129836621838781175
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: -7637513605491508997}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Team 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 3468759845085989018}
-  ScoreField: {fileID: 5662850784215935636}
+  ScoreField: {fileID: 4573414215540247298}
 --- !u!114 &5433357169196949634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1076,7 +1076,7 @@ RectTransform:
   - {fileID: 8263857532868862451}
   - {fileID: 2179320076719495098}
   - {fileID: 5269677843429007681}
-  - {fileID: 235385731733109854}
+  - {fileID: 1274381867936365858}
   m_Father: {fileID: 5977766508261660925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}

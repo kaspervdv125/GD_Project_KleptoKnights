@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 {
     public Slider HealthBar;
     public TMP_Text ScoreField;
+    private GameObject TeamScoreBox;
 
     // Start is called before the first frame update
     void Start()
