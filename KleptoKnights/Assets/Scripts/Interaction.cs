@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using Input = UnityEngine.Input;
 
@@ -8,7 +9,9 @@ public class Interaction : MonoBehaviour
 {
     
     // Input
-    private static bool IsInteractDown => Input.GetMouseButton(0);
+    //private static bool IsInteractDown => Input.GetMouseButton(0);
+    private bool IsInteractDown;
+    private int _playerNumber;
     
     // Interaction
     private IInteractable _interactionTarget;
@@ -32,12 +35,23 @@ public class Interaction : MonoBehaviour
         set => _isInteracting = value;
     }
 
+    private void Start()
+    {
+        _playerNumber = GetComponent<CharacterControl>().PlayerNumber;
+    }
+
     private void Update()
     {
+        SetIsInteractDown();
         GetInteractable();
         Interact();
     }
-    
+
+    private void SetIsInteractDown()
+    {
+        IsInteractDown = Input.GetButton($"Pickup {_playerNumber}");
+    }
+
     private void Interact()
     {
         if(IsInteractDown && CanInteract) _interactionTarget?.StartInteract(gameObject);

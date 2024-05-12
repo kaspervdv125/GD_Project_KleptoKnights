@@ -20,7 +20,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int attackDamage)
     {
-        Debug.Log("Enemy taking damage!");
+        Debug.Log(gameObject.name + " took damage!");
+        //Debug.Log("Enemy taking damage!");
         currentHealth -= attackDamage;
 
         if (hitParticle != null)
@@ -28,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
             hitParticle.Play();
         }
 
-       // Ui.HealthBar.value = currentHealth;
+        Ui.HealthBar.value = currentHealth;
 
         // Check if the enemy has been defeated
         if (currentHealth <= 0)

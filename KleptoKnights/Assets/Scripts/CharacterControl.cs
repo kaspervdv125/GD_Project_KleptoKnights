@@ -53,7 +53,7 @@ public class CharacterControl : MonoBehaviour
     private void UpdateInput()
     {
         float inputHorizontal = Input.GetAxis($"Movement Horizontal {PlayerNumber}");
-        float inputVertical = Input.GetAxis($"Movement Vertical {PlayerNumber}");
+        float inputVertical = -Input.GetAxis($"Movement Vertical {PlayerNumber}");
         _input = new Vector2(inputHorizontal, inputVertical);
     }
 

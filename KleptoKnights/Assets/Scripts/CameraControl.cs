@@ -130,7 +130,7 @@ public class CameraControl : MonoBehaviour
     private void SetInput()
     {
         float inputHorizontal = Input.GetAxis($"Camera Horizontal {PlayerNumber}");
-        float inputVertical = Input.GetAxis($"Camera Vertical {PlayerNumber}");
+        float inputVertical = -Input.GetAxis($"Camera Vertical {PlayerNumber}");
 
         _input = new Vector2(inputHorizontal, inputVertical);
     }
