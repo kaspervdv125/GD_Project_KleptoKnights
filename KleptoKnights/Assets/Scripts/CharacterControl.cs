@@ -39,7 +39,11 @@ public class CharacterControl : MonoBehaviour
     {
         SetMovementState();
         UpdateInput();
+        Jump();
+    }
 
+    private void Jump()
+    {
         if (Input.GetButtonDown($"Jump {PlayerNumber}"))
         {
             _isJumping = true;

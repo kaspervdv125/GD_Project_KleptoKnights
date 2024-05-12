@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 5487102540826661031}
   - component: {fileID: 5871994684656969887}
   - component: {fileID: 5433357169196949634}
+  - component: {fileID: 7817125263171862320}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -745,8 +746,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 0
-  blood: {fileID: 252237061427886351, guid: 0c1849d99523be649b04b080e89b878c, type: 3}
+  hitParticle: {fileID: 0}
   Ui: {fileID: 5871994684656969887}
+--- !u!114 &7817125263171862320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915121591030198316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18758260c579bae4b97abf5fcfe8ccb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handOffset: 0.5
 --- !u!1 &4673056327967335358
 GameObject:
   m_ObjectHideFlags: 0
