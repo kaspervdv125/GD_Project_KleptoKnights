@@ -45,6 +45,15 @@ public class Interaction : MonoBehaviour
         SetIsInteractDown();
         GetInteractable();
         Interact();
+        DropItem();
+    }
+
+    private void DropItem()
+    {
+        if (Input.GetButtonDown($"Drop {_playerNumber}"))
+        {
+            GetComponent<Inventory>().DropItem();
+        }
     }
 
     private void SetIsInteractDown()

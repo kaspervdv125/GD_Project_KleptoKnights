@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -9,11 +10,6 @@ public class Inventory : MonoBehaviour
     private List<Pickup1> _items = new List<Pickup1>();
     private float handOffset = 1.5f;
 
-
-    private void Update()
-    {
-        Debug.Log(_items.Count);
-    }
 
     public void AddItem(Pickup1 newItem)
     {
@@ -36,10 +32,10 @@ public class Inventory : MonoBehaviour
         itemTransform.parent = transform;
         itemTransform.localPosition = localOffset;
 
-        newItem.gameObject.layer = LayerMask.NameToLayer("InteractibleHeld");
+        newItem.gameObject.layer = LayerMask.NameToLayer("HeldObject");
+        newItem.GetComponent<Rigidbody>().isKinematic = true;
 
         _items.Add(newItem);
-        
     }
 
     public void DropItem()
@@ -47,7 +43,9 @@ public class Inventory : MonoBehaviour
         _items.Last().transform.parent = null;
         _items.Last().EndInteract(gameObject);
 
-        _items.Last().gameObject.layer = LayerMask.NameToLayer("Interactible");
+        _items.Last().gameObject.layer = 8;
+        _items.Last().GetComponent<Rigidbody>().isKinematic = false;
+
 
         _items.Remove(_items.Last());
     }
