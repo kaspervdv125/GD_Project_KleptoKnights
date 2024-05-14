@@ -608,6 +608,7 @@ GameObject:
   - component: {fileID: 5433357169196949634}
   - component: {fileID: 7817125263171862320}
   - component: {fileID: -7637513605491508997}
+  - component: {fileID: 101175198331231883}
   m_Layer: 0
   m_Name: Player
   m_TagString: Team 1
@@ -672,9 +673,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 3890617620203980511}
+  _playerClass: {fileID: 101175198331231883}
   _camera: {fileID: 156239323784104052}
-  _maxWalkingSpeed: 7
-  _maxRunningSpeed: 15
+  _runningSpeedMultiplier: 0
   _acceleration: 5
   _dragOnGround: 10
   _rotationSpeed: 10
@@ -776,6 +777,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36350aa420a923a4cacbb47c6285bd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &101175198331231883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915121591030198316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b689a1ec39dab148a803aed81e0f178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Class: 0
 --- !u!1 &4673056327967335358
 GameObject:
   m_ObjectHideFlags: 0

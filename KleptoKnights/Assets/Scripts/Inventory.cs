@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private CharacterControl controller;
     private List<Pickup1> _items = new List<Pickup1>();
-    private float handOffset = 5f;
+    private float handOffset = 1.25f;
     private float _throwForce = 5f;
     private void Update()
     {
@@ -23,17 +23,24 @@ public class Inventory : MonoBehaviour
         
         foreach (var item in _items)
         {
-            var itemTransform = item.transform;
 
-            Vector3 pos = itemTransform.localPosition;
+            Vector3 pos = item.transform.localPosition;
             pos.x =  direction.x * -i;
-            pos.z = direction.z * i ;
-
-            itemTransform.localRotation = Quaternion.Euler(Vector3.right * (controller.Velocity.magnitude * .1f * -i));
-            itemTransform.localPosition = pos;
+            pos.z = direction.z * i;
             
+            // fix this maybe idk it works but could be cleaner
+            if (i == 0) pos.z = handOffset;
+
+            item.transform.localRotation = Quaternion.Euler(Vector3.right * (controller.Velocity.magnitude * .1f * -i));
+            item.transform.localPosition = pos;
+
+
+            
+
+
             i++;
         }
+        
     }
     
 
@@ -42,6 +49,7 @@ public class Inventory : MonoBehaviour
         var itemTransform = newItem.transform;
         Vector3 localOffset = new Vector3(0, 0, handOffset);
 
+        
         if (_items.Count >= 1)
         {
             var newBounds = GetMaxBounds(newItem.gameObject);
@@ -61,7 +69,8 @@ public class Inventory : MonoBehaviour
         }
 
 
-        itemTransform.localPosition = localOffset + new Vector3(0,0,50f);
+        itemTransform.localPosition = localOffset; 
+            
         
         itemTransform.rotation = Quaternion.Euler(Vector3.zero);
 
