@@ -25,6 +25,7 @@ public class Pickup1 : MonoBehaviour, IInteractable
    {
        interactor.GetComponent<Inventory>()?.AddItem(this);
        IsHeld = true;
+ 
 
    }
 

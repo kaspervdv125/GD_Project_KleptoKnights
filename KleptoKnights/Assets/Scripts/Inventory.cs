@@ -8,7 +8,20 @@ public class Inventory : MonoBehaviour
 {
     private List<Pickup1> _items = new List<Pickup1>();
     private float handOffset = 1.5f;
+    private float _throwForce = 5f;
+    private void Update()
+    {
+        WobbleItems();
+    }
 
+    private void WobbleItems()
+    {
+        foreach (var item in _items)
+        {
+            
+        }
+    }
+    
 
     public void AddItem(Pickup1 newItem)
     {
@@ -44,11 +57,16 @@ public class Inventory : MonoBehaviour
             return;
         }
 
-        _items.Last().transform.parent = null;
-        _items.Last().EndInteract(gameObject);
+  
 
         _items.Last().gameObject.layer = 8;
-        _items.Last().GetComponent<Rigidbody>().isKinematic = false;
+        
+        Rigidbody itemBody = _items.Last().GetComponent<Rigidbody>();
+        itemBody.isKinematic = false;
+        itemBody.AddForce(transform.forward * _throwForce, ForceMode.Impulse);
+        
+        _items.Last().transform.parent = null;
+        _items.Last().EndInteract(gameObject);     
 
 
         _items.Remove(_items.Last());
@@ -57,15 +75,6 @@ public class Inventory : MonoBehaviour
     // calculates the full bounds of an item's mesh. might produce weird results with odd item shapes.
     private static Bounds GetMaxBounds(GameObject item) 
     {
-        //var renderers = item.GetComponentsInChildren<Renderer>();
-        //if (renderers.Length == 0) return new Bounds(item.transform.position, Vector3.zero);
-        //var b = renderers[0].bounds;
-        
-        //foreach (var r in renderers) 
-        //{
-        //    b.Encapsulate(r.bounds);
-        //}
-        //return b;
 
         Collider colliders = item.GetComponent<Collider>();
         Bounds bounds = colliders.bounds;
