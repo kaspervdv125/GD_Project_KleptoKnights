@@ -271,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2338484172440284255, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
       propertyPath: enemyLayer.m_Bits
-      value: 128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3438945620340362270, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
       propertyPath: teamNumber
@@ -651,7 +651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1100262072091085961, guid: 452ff60ffad6f73498f76c4fc9260f32, type: 3}
       propertyPath: enemyLayer.m_Bits
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2387159693441130680, guid: 452ff60ffad6f73498f76c4fc9260f32, type: 3}
       propertyPath: m_LocalPosition.x
