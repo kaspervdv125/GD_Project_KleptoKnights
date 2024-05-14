@@ -24,6 +24,8 @@ public class CharacterControl : MonoBehaviour
     [SerializeField]
     private Vector3 _velocity;
 
+    public Vector3 Velocity => _velocity;
+
     [SerializeField]
     private float _jumpHeight;
     private bool _isJumping;

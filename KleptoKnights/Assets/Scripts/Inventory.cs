@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+
+    [SerializeField] private CharacterControl controller;
     private List<Pickup1> _items = new List<Pickup1>();
-    private float handOffset = 1.5f;
+    private float handOffset = 5f;
     private float _throwForce = 5f;
     private void Update()
     {
@@ -16,9 +18,21 @@ public class Inventory : MonoBehaviour
 
     private void WobbleItems()
     {
+        int i = 0;
+        Vector3 direction = transform.InverseTransformDirection(controller.Velocity.normalized  * -.1f)  ;
+        
         foreach (var item in _items)
         {
+            var itemTransform = item.transform;
+
+            Vector3 pos = itemTransform.localPosition;
+            pos.x =  direction.x * -i;
+            pos.z = direction.z * i ;
+
+            itemTransform.localRotation = Quaternion.Euler(Vector3.right * (controller.Velocity.magnitude * .1f * -i));
+            itemTransform.localPosition = pos;
             
+            i++;
         }
     }
     
@@ -32,17 +46,24 @@ public class Inventory : MonoBehaviour
         {
             var newBounds = GetMaxBounds(newItem.gameObject);
             var lastBounds = GetMaxBounds(_items.Last().gameObject);
+            
 
-            localOffset.y = lastBounds.extents.y + newBounds.extents.y + _items.Last().transform.localPosition.y;
+            // localOffset.y = lastBounds.extents.y + newBounds.extents.y + _items.Last().transform.localPosition.y;
+            localOffset.y = newBounds.extents.y * 2f;
+            
+            itemTransform.parent = _items.Last().transform;
         }
         else
         {
             var newBounds = GetMaxBounds(newItem.gameObject);
-            localOffset.y = newBounds.extents.y + 0.5f;
+            localOffset.y = newBounds.min.y + 0.5f;
+            itemTransform.parent = transform;
         }
+
+
+        itemTransform.localPosition = localOffset + new Vector3(0,0,50f);
         
-        itemTransform.parent = transform;
-        itemTransform.localPosition = localOffset;
+        itemTransform.rotation = Quaternion.Euler(Vector3.zero);
 
         newItem.gameObject.layer = LayerMask.NameToLayer("HeldObject");
         newItem.GetComponent<Rigidbody>().isKinematic = true;
