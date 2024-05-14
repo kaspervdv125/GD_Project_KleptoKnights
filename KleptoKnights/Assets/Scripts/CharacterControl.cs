@@ -9,10 +9,13 @@ public class CharacterControl : MonoBehaviour
     private CharacterController _characterController;
 
     [SerializeField]
+    private Classes _playerClass;
+
+    [SerializeField]
     private GameObject _camera;
 
     [SerializeField]
-    private float _maxWalkingSpeed, _maxRunningSpeed, _acceleration, _dragOnGround, _rotationSpeed;
+    private float _runningSpeedMultiplier, _acceleration, _dragOnGround, _rotationSpeed;
 
     private MovementState _movementState = MovementState.Walking;
 
@@ -77,10 +80,10 @@ public class CharacterControl : MonoBehaviour
         switch (_movementState)
         {
             case MovementState.Walking:
-                SetMovement(_maxWalkingSpeed);
+                SetMovement(_playerClass.MovementSpeed);
                 break;
             case MovementState.Running:
-                SetMovement(_maxRunningSpeed);
+                SetMovement(_playerClass.MovementSpeed * _runningSpeedMultiplier);
                 break;
         }
 
