@@ -18,9 +18,4 @@ public class UI : MonoBehaviour
 
 
     }
-
-    public void ChangeScore(int score)
-    {
-        ScoreField.text = "Score: " + score.ToString().PadLeft(3, '0');
-    }
 }

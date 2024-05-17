@@ -7,7 +7,7 @@ public class TeamScoreCounter : MonoBehaviour
 {
     public int TeamScore;
 
-    public UI[] _playerUis;
+    public GlobalUI GlobalUI;
 
     public LayerMask ObjectLayers;
 
@@ -20,16 +20,7 @@ public class TeamScoreCounter : MonoBehaviour
         foreach (var collider in colliders)
         {
             TeamScore += collider.GetComponent<ObjectValue>().Value;
-        }
-
-        GameObject[] teamPlayers = GameObject.FindGameObjectsWithTag(name);
-        _playerUis = new UI[teamPlayers.Length];
-
-        for (int i = 0; i < teamPlayers.Length; i++)
-        {
-            _playerUis[i] = teamPlayers[i].GetComponent<UI>();
-        }
-        
+        }        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,7 +33,7 @@ public class TeamScoreCounter : MonoBehaviour
         //}
 
         CalculateScore();
-        SetPlayerScore();
+        GlobalUI.SetScore(this.gameObject);
     }
 
     private void CalculateScore()
@@ -60,14 +51,6 @@ public class TeamScoreCounter : MonoBehaviour
         TeamScore = tempScore;
     }
 
-    private void SetPlayerScore()
-    {
-        foreach (var player in _playerUis)
-        {
-            player.ChangeScore(TeamScore);
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
         //if (other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
@@ -77,7 +60,7 @@ public class TeamScoreCounter : MonoBehaviour
         //}
 
         CalculateScore();
-        SetPlayerScore();
+        
     }
 
     private void OnDrawGizmos()

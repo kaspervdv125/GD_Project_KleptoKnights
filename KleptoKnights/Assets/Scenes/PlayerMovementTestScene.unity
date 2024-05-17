@@ -1319,17 +1319,21 @@ PrefabInstance:
       propertyPath: teamNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 722888378258549418, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2405592162913623591, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 2405592162913623591, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2405592162913623591, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 2624535045326014107, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1377,15 +1381,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5720213233763718912, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 5720213233763718912, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8714518973723204165, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
       propertyPath: m_Name
       value: Player 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714518973723204165, guid: 125a3eda6b33cef4bb98deb20ed9932e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1404,29 +1412,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1196164862075669928, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2704602692216914394, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -41.000153
       objectReference: {fileID: 0}
     - target: {fileID: 2813578709981118701, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 2813578709981118701, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5263564595264571850, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 5263564595264571850, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5263564595264571850, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 5477971408355578230, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1466,6 +1478,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5477971408355578230, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089130260232715591, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}
+      propertyPath: enemyLayer.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7902628001455299846, guid: d1cf2f07ebce2f449b2af8ab4949b5fb, type: 3}

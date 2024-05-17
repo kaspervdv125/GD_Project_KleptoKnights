@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: enemyLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 5433357169196949634, guid: 69bda829e39682d4c9a47a885ec03840, type: 3}
+      propertyPath: teamNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6453921842116328252, guid: 69bda829e39682d4c9a47a885ec03840, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
       value: 0
