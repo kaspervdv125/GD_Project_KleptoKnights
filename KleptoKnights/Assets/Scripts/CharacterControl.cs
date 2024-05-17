@@ -29,9 +29,15 @@ public class CharacterControl : MonoBehaviour
 
     public Vector3 Velocity => _velocity;
 
+    private Vector3 _averageVelocity;
+    private Vector3 _lastPosition;
+    public Vector3 AverageVelocity => _averageVelocity;
+
+
     [SerializeField]
     private float _jumpHeight;
     private bool _isJumping;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +51,23 @@ public class CharacterControl : MonoBehaviour
         SetMovementState();
         UpdateInput();
         Jump();
+
+    }
+
+    private void LateUpdate()
+    {
+        CalculateVelocity();
+    }
+
+    private void CalculateVelocity()
+    {
+        var position = transform.position;
+        // _averageVelocity = (_lastPosition - position) / Time.deltaTime;
+        
+        _averageVelocity = ((_lastPosition - position).magnitude / Time.deltaTime) * (_lastPosition - position).normalized;
+        
+        
+        _lastPosition = position;
     }
 
     private void Jump()

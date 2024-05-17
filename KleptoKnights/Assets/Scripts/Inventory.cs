@@ -19,10 +19,13 @@ public class Inventory : MonoBehaviour
     private void WobbleItems()
     {
         int i = 0;
-        Vector3 direction = transform.InverseTransformDirection(controller.Velocity.normalized  * -.1f)  ;
+        Vector3 direction = transform.InverseTransformDirection(controller.Velocity.normalized  * -.1f);
+
+        direction = -controller.AverageVelocity.normalized;
         
         foreach (var item in _items)
         {
+            direction = - item.GetComponent<Rigidbody>().velocity;
 
             Vector3 pos = item.transform.localPosition;
             pos.x =  direction.x * -i;
@@ -31,13 +34,10 @@ public class Inventory : MonoBehaviour
             // fix this maybe idk it works but could be cleaner
             if (i == 0) pos.z = handOffset;
 
-            item.transform.localRotation = Quaternion.Euler(Vector3.right * (controller.Velocity.magnitude * .1f * -i));
-            item.transform.localPosition = pos;
-
-
+            Transform itemTransform = item.transform;
+            itemTransform.localRotation = Quaternion.Euler(Vector3.right * (controller.Velocity.magnitude * .15f * -i));
+            itemTransform.localPosition = pos;
             
-
-
             i++;
         }
         
@@ -64,7 +64,8 @@ public class Inventory : MonoBehaviour
         else
         {
             var newBounds = GetMaxBounds(newItem.gameObject);
-            localOffset.y = newBounds.min.y + 0.5f;
+            newBounds.center = transform.position;
+            localOffset.y = newBounds.min.y + 0;
             itemTransform.parent = transform;
         }
 
@@ -108,6 +109,7 @@ public class Inventory : MonoBehaviour
 
         Collider colliders = item.GetComponent<Collider>();
         Bounds bounds = colliders.bounds;
+        bounds.center = Vector3.zero;
         return bounds;
     }
 
