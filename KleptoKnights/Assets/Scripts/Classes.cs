@@ -88,26 +88,4 @@ public class Classes : MonoBehaviour
             }
         }
     }
-
-    // Example usage
-    public class Program
-    {
-        public static void Main()
-        {
-            Player player = new Player();
-
-            Item sword = new Item(ItemType.Sword);
-            Item hammer = new Item(ItemType.Hammer);
-            Item dagger = new Item(ItemType.Dagger);
-
-            player.PickupItem(sword);
-            Console.WriteLine($"Class: {player.Class}, MovementSpeed: {player.MovementSpeed}, WeightLimit: {player.WeightLimit}");
-
-            player.PickupItem(hammer);
-            Console.WriteLine($"Class: {player.Class}, MovementSpeed: {player.MovementSpeed}, WeightLimit: {player.WeightLimit}");
-
-            player.PickupItem(dagger);
-            Console.WriteLine($"Class: {player.Class}, MovementSpeed: {player.MovementSpeed}, WeightLimit: {player.WeightLimit}");
-        }
-    }
-}
+}   

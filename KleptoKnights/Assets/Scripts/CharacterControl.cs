@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
+
+
     [SerializeField]
     private CharacterController _characterController;
 
