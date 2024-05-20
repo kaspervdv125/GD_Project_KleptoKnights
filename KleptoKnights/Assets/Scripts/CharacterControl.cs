@@ -9,7 +9,7 @@ public class CharacterControl : MonoBehaviour
     private CharacterController _characterController;
 
     [SerializeField]
-    private Classes _playerClass;
+    private Classes.Player _playerClass;
 
     [SerializeField]
     private GameObject _camera;
