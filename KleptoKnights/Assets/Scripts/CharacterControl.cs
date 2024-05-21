@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
+    [SerializeField]
+    public Classes.PlayerClass playerClass;
 
+    private Classes.Player player;
 
     [SerializeField]
     private CharacterController _characterController;
@@ -55,6 +58,12 @@ public class CharacterControl : MonoBehaviour
         UpdateInput();
         Jump();
 
+    }
+
+    public void PickupItem(Classes.Item item)
+    {
+        player.PickupItem(item);
+        playerClass = player.Class;
     }
 
     private void LateUpdate()
