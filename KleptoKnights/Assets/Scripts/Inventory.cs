@@ -64,8 +64,8 @@ public class Inventory : MonoBehaviour
         else
         {
             var newBounds = GetMaxBounds(newItem.gameObject);
-            newBounds.center = transform.position;
-            localOffset.y = newBounds.min.y + 0;
+            //newBounds.center = transform.position;
+            localOffset.y = newBounds.min.y + 1.0f;
             itemTransform.parent = transform;
         }
 
