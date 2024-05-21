@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AttackScript : MonoBehaviour
 {
     public float attackRange = 1f; // Adjust this value to set the attack range
     public LayerMask enemyLayer; // Set this in the Unity inspector to the layer where your enemies are
-    
 
     private bool isAttacking = false;
     private float attackCooldownTimer = 0f;
@@ -15,6 +16,8 @@ public class AttackScript : MonoBehaviour
     private int _playerNumber;
 
     Animator animator;
+
+    public Image _timerUi;
 
     void Start()
     {
@@ -47,6 +50,14 @@ public class AttackScript : MonoBehaviour
         }
 
         animator.SetBool("isAttacking", isAttacking);
+
+        SetTimer();
+    }
+
+    private void SetTimer()
+    {
+        float fraction = attackCooldownTimer / attackCooldown;
+        _timerUi.fillAmount = fraction;
     }
 
     void Attack()

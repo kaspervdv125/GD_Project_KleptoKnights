@@ -51,6 +51,8 @@ public class EnemyHealth : MonoBehaviour
 
         var spawn =  GameObject.FindGameObjectWithTag($"SpawnTeam{teamNumber}");
 
+        GetComponent<Inventory>().DropAllItems();
+
         GetComponent<CharacterController>().enabled = false;
         gameObject.transform.position = spawn.transform.position;
         GetComponent<CharacterController>().enabled = true;

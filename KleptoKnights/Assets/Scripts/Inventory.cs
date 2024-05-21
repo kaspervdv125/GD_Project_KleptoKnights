@@ -53,7 +53,7 @@ public class Inventory : MonoBehaviour
         if (_items.Count >= 1)
         {
             var newBounds = GetMaxBounds(newItem.gameObject);
-            var lastBounds = GetMaxBounds(_items.Last().gameObject);
+           //  var lastBounds = GetMaxBounds(_items.Last().gameObject);
             
 
             // localOffset.y = lastBounds.extents.y + newBounds.extents.y + _items.Last().transform.localPosition.y;
@@ -64,8 +64,8 @@ public class Inventory : MonoBehaviour
         else
         {
             var newBounds = GetMaxBounds(newItem.gameObject);
-            newBounds.center = transform.position;
-            localOffset.y = newBounds.min.y + 0;
+            //newBounds.center = transform.position;
+            localOffset.y = newBounds.min.y + 1.0f;
             itemTransform.parent = transform;
         }
 
@@ -97,18 +97,27 @@ public class Inventory : MonoBehaviour
         itemBody.AddForce(transform.forward * _throwForce, ForceMode.Impulse);
         
         _items.Last().transform.parent = null;
-        _items.Last().EndInteract(gameObject);     
+        _items.Last().Drop(gameObject);     
 
 
         _items.Remove(_items.Last());
     }
 
+    public void DropAllItems()
+    {
+        for (int i = _items.Count - 1; i >= 0; i--)
+        {
+            DropItem();
+        }
+    }
+
     // calculates the full bounds of an item's mesh. might produce weird results with odd item shapes.
     private static Bounds GetMaxBounds(GameObject item) 
     {
-
-        Collider colliders = item.GetComponent<Collider>();
-        Bounds bounds = colliders.bounds;
+    
+        Collider collider = item.GetComponent<Collider>();
+        collider.transform.rotation = Quaternion.identity;
+        Bounds bounds = collider.bounds;
         bounds.center = Vector3.zero;
         return bounds;
     }
