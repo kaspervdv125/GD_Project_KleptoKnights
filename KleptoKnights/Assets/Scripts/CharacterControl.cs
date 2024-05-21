@@ -14,7 +14,7 @@ public class CharacterControl : MonoBehaviour
     private CharacterController _characterController;
 
     [SerializeField]
-    private Classes.Player _playerClass;
+    private Classes _playerClass;
 
     [SerializeField]
     private GameObject _camera;
@@ -48,7 +48,6 @@ public class CharacterControl : MonoBehaviour
     void Start()
     {
         _camera.GetComponent<CameraControl>().PlayerNumber = PlayerNumber;
-        _playerClass = new Classes.Player();
     }
 
     // Update is called once per frame

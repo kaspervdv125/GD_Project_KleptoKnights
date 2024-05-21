@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,14 @@ public class Pickup1 : MonoBehaviour, IInteractable
     
     public string Name { get; } = "item";
     public string Verb { get; } = "Pick up";
+    [SerializeField]
+    private ObjectValue objectValue = new ObjectValue();
+    
     public bool IsInteractable => !IsHeld;
-
+    [SerializeField]
+    private float timer;
+    private bool pickingUp;
+    private Inventory PickUpObject;
     // Pickup
     private bool IsHeld { get;  set; }
 
@@ -23,14 +30,35 @@ public class Pickup1 : MonoBehaviour, IInteractable
 
    public void StartInteract(GameObject interactor)
    {
-       interactor.GetComponent<Inventory>()?.AddItem(this);
-       IsHeld = true;
- 
-
+         PickUpObject = interactor.GetComponent<Inventory>();
+        pickingUp = true;
+        Debug.Log("True");
    }
-
+    private void Update () 
+    {
+        if (pickingUp)
+        {
+            if (timer > objectValue.Value / 10)
+            {
+                PickUpObject.AddItem(this);
+                IsHeld = true;
+                pickingUp = false;
+                timer = 0;
+            }
+            else
+            {
+                timer += Time.deltaTime;
+            }
+        }
+    }
    public void EndInteract(GameObject interactor)
    {
-       IsHeld = false;
+        pickingUp = false;
+        timer = 0;
    }
+
+   public void Drop(GameObject interactor)
+    {
+        IsHeld = false;
+    }
 }

@@ -97,7 +97,7 @@ public class Inventory : MonoBehaviour
         itemBody.AddForce(transform.forward * _throwForce, ForceMode.Impulse);
         
         _items.Last().transform.parent = null;
-        _items.Last().EndInteract(gameObject);     
+        _items.Last().Drop(gameObject);     
 
 
         _items.Remove(_items.Last());

@@ -10,7 +10,7 @@ public class Interaction : MonoBehaviour
     
     // Input
     //private static bool IsInteractDown => Input.GetMouseButton(0);
-    private bool IsInteractDown;
+    private bool IsInteractDown, IsInteractUp;
     private int _playerNumber;
     
     // Interaction
@@ -46,6 +46,11 @@ public class Interaction : MonoBehaviour
         GetInteractable();
         Interact();
         DropItem();
+
+        if (IsInteractUp)
+        {
+            _interactionTarget?.EndInteract(gameObject);
+        }
     }
 
     private void DropItem()
@@ -58,7 +63,8 @@ public class Interaction : MonoBehaviour
 
     private void SetIsInteractDown()
     {
-        IsInteractDown = Input.GetButtonDown($"Pickup {_playerNumber}") | Input.GetMouseButton(0);
+        IsInteractDown = Input.GetButtonDown($"Pickup {_playerNumber}") | Input.GetMouseButtonDown(0);
+        IsInteractUp = Input.GetButtonUp($"Pickup {_playerNumber}") | Input.GetMouseButtonUp(0);
     }
 
     private void Interact()
