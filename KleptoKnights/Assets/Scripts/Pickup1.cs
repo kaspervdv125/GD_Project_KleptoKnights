@@ -42,6 +42,7 @@ public class Pickup1 : MonoBehaviour, IInteractable
             {
                 PickUpObject.AddItem(this);
                 IsHeld = true;
+                pickingUp = false;
                 timer = 0;
             }
             else
@@ -52,8 +53,12 @@ public class Pickup1 : MonoBehaviour, IInteractable
     }
    public void EndInteract(GameObject interactor)
    {
-       IsHeld = false;
         pickingUp = false;
         timer = 0;
    }
+
+   public void Drop(GameObject interactor)
+    {
+        IsHeld = false;
+    }
 }
