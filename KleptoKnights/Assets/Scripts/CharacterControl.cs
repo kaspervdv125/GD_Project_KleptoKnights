@@ -45,6 +45,7 @@ public class CharacterControl : MonoBehaviour
     void Start()
     {
         _camera.GetComponent<CameraControl>().PlayerNumber = PlayerNumber;
+        _playerClass = new Classes.Player();
     }
 
     // Update is called once per frame
