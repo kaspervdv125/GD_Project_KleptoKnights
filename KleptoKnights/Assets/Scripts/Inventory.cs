@@ -103,6 +103,14 @@ public class Inventory : MonoBehaviour
         _items.Remove(_items.Last());
     }
 
+    public void DropAllItems()
+    {
+        for (int i = _items.Count - 1; i >= 0; i--)
+        {
+            DropItem();
+        }
+    }
+
     // calculates the full bounds of an item's mesh. might produce weird results with odd item shapes.
     private static Bounds GetMaxBounds(GameObject item) 
     {
