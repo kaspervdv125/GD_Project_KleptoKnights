@@ -8,7 +8,7 @@ public class CharacterControl : MonoBehaviour
     [SerializeField]
     public Classes.PlayerClass playerClass;
 
-    private Classes.Player player;
+    //private Classes. player;
 
     [SerializeField]
     private CharacterController _characterController;
@@ -59,11 +59,11 @@ public class CharacterControl : MonoBehaviour
 
     }
 
-    public void PickupItem(Classes.Item item)
-    {
-        player.PickupItem(item);
-        playerClass = player.Class;
-    }
+    //public void PickupItem(Classes.Item item)
+    //{
+    //    player.PickupItem(item);
+    //    playerClass = player.Class;
+    //}
 
     private void LateUpdate()
     {

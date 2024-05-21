@@ -29,13 +29,13 @@ public class Classes : MonoBehaviour
             switch (Class)
             {
                 case PlayerClass.Knight:
-                    return 50;
+                    return 100;
                 case PlayerClass.Rogue:
-                    return 35;
+                    return 60;
                 case PlayerClass.Builder:
-                    return 65;
+                    return 140;
                 default:
-                    return 50;
+                    return 100;
             }
         }
     }

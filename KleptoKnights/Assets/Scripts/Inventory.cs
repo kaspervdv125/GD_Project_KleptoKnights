@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,6 +12,33 @@ public class Inventory : MonoBehaviour
     private List<Pickup1> _items = new List<Pickup1>();
     private float handOffset = 1.25f;
     private float _throwForce = 5f;
+
+    [SerializeField] private Classes _playerClass;
+
+    public int HeldWeight
+    {
+        get
+        {
+            int totalWeight = 0;
+
+            foreach (var item in _items)
+            {
+                int itemWeight = item.GetComponent<ObjectValue>().Value;
+                totalWeight += itemWeight;
+            }
+
+            return totalWeight;
+        }
+    }
+
+    public int WeightLimit
+    {
+        get
+        {
+            return _playerClass.WeightLimit;
+        }
+    }
+
     private void Update()
     {
         WobbleItems();
@@ -46,10 +74,17 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Pickup1 newItem)
     {
+        int newItemWeight = newItem.GetComponent<ObjectValue>().Value;
+        int weightLimit = GetComponent<Classes>().WeightLimit;
+
+        if (HeldWeight + newItemWeight > weightLimit)
+        {
+            return;
+        }
+
         var itemTransform = newItem.transform;
         Vector3 localOffset = new Vector3(0, 0, handOffset);
 
-        
         if (_items.Count >= 1)
         {
             var newBounds = GetMaxBounds(newItem.gameObject);
@@ -79,6 +114,15 @@ public class Inventory : MonoBehaviour
         newItem.GetComponent<Rigidbody>().isKinematic = true;
 
         _items.Add(newItem);
+
+        UpdateUi();
+    }
+
+    private void UpdateUi()
+    {
+        UI ui = GetComponent<UI>();
+
+        ui.UpdateWeightBar(HeldWeight, WeightLimit);
     }
 
     public void DropItem()
@@ -86,9 +130,7 @@ public class Inventory : MonoBehaviour
         if (_items.Count == 0)
         {
             return;
-        }
-
-  
+        }  
 
         _items.Last().gameObject.layer = 8;
         
@@ -101,6 +143,8 @@ public class Inventory : MonoBehaviour
 
 
         _items.Remove(_items.Last());
+
+        UpdateUi();
     }
 
     public void DropAllItems()

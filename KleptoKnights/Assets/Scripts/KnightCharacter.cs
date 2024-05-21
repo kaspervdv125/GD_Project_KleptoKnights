@@ -7,7 +7,7 @@ public class KnightCharacter : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Component cameraEmpty;
     [SerializeField] private Component cameraBoom;
-    [SerializeField] private Camera camera;
+    //[SerializeField] private Camera camera;
     
     // Interaction
     private IInteractable _interactionTarget;

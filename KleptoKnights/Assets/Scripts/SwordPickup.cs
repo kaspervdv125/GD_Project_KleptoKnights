@@ -22,18 +22,18 @@ public class SwordPickup : MonoBehaviour, IInteractable
 
     public void StartInteract(GameObject interactor)
     {
-        interactor.GetComponent<Inventory>()?.AddItem(this);
-        IsHeld = true;
+        //interactor.GetComponent<Inventory>()?.AddItem(this);
+        //IsHeld = true;
 
-        var playerComponent = interactor.GetComponent<Classes.Player>();
-        if (playerComponent != null)
-        {
-            var swordItem = new Classes.Item(Classes.ItemType.Sword);
-            playerComponent.PickupItem(swordItem);
-            Destroy(gameObject); // Destroy the sword after picking it up
+        //var playerComponent = interactor.GetComponent<Classes.Player>();
+        //if (playerComponent != null)
+        //{
+        //    var swordItem = new Classes.Item(Classes.ItemType.Sword);
+        //    playerComponent.PickupItem(swordItem);
+        //    Destroy(gameObject); // Destroy the sword after picking it up
 
             
-        }
+        //}
     }
 
     public void EndInteract(GameObject interactor)

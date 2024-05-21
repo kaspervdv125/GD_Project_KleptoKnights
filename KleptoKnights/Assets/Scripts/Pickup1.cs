@@ -10,11 +10,11 @@ public class Pickup1 : MonoBehaviour, IInteractable
     
     public string Name { get; } = "item";
     public string Verb { get; } = "Pick up";
-    [SerializeField]
-    private ObjectValue objectValue = new ObjectValue();
+
+    [SerializeField] private ObjectValue objectValue;
     
     public bool IsInteractable => !IsHeld;
-    [SerializeField]
+
     private float timer;
     private bool pickingUp;
     private Inventory PickUpObject;
