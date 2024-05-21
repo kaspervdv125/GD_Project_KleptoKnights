@@ -646,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 3890617620203980511}
+  _playerClass: {fileID: 101175198331231883}
   _camera: {fileID: 156239323784104052}
   _runningSpeedMultiplier: 1.5
   _acceleration: 5
@@ -761,6 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b689a1ec39dab148a803aed81e0f178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Class: 0
 --- !u!1 &4673056327967335358
 GameObject:
   m_ObjectHideFlags: 0
