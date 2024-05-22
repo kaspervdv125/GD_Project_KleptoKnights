@@ -70,6 +70,8 @@ public class CharacterControl : MonoBehaviour
         CalculateVelocity();
     }
 
+ 
+
     private void CalculateVelocity()
     {
         var position = transform.position;

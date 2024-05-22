@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Classes : MonoBehaviour
 {
+
     public float MovementSpeed
     {
         get

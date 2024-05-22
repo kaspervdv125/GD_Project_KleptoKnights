@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordPickup : MonoBehaviour, IInteractable
+public class HammerPickup : MonoBehaviour, IInteractable
 {
-    // IIinteractable
-
-
-
     public string Name { get; } = "item";
     public string Verb { get; } = "Pick up";
 
@@ -29,13 +25,13 @@ public class SwordPickup : MonoBehaviour, IInteractable
         Classes classes = interactor.GetComponent<Classes>();
         if (classes != null)
         {
-            classes.Class = Classes.PlayerClass.Knight;
+            classes.Class = Classes.PlayerClass.Builder;
         }
-        Debug.Log("Knight!");
+        Debug.Log("Builder");
     }
     private void Update()
     {
-        
+
     }
     public void EndInteract(GameObject interactor)
     {
