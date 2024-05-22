@@ -25,7 +25,8 @@ public class HammerPickup : MonoBehaviour, IInteractable
         Classes classes = interactor.GetComponent<Classes>();
         if (classes != null)
         {
-            classes.Class = Classes.PlayerClass.Builder;
+            //classes.Class = Classes.PlayerClass.Builder;
+            classes.ChangeClass(Classes.PlayerClass.Builder);
         }
         Debug.Log("Builder");
     }

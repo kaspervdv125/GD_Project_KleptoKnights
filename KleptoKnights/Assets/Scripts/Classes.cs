@@ -44,6 +44,41 @@ public class Classes : MonoBehaviour
 
     public PlayerClass Class;
 
+    [SerializeField] private GameObject _knightHead;
+    [SerializeField] private GameObject _rogueHead;
+    [SerializeField] private GameObject _builderHead;
+
+    private GameObject _head;
+
+    private void Start()
+    {
+        ChangeClass(PlayerClass.Knight);
+    }
+
+    public void ChangeClass(PlayerClass targetClass)
+    {
+        Class = targetClass;
+
+        Destroy(_head);
+
+        switch (targetClass)
+        {
+            case PlayerClass.Knight:
+                _head = Instantiate(_knightHead);
+                break;
+            case PlayerClass.Rogue:
+                _head = Instantiate(_rogueHead);
+                break;
+            case PlayerClass.Builder:
+                _head = Instantiate(_builderHead);
+                break;
+        }
+
+        _head.transform.parent = transform;
+        _head.transform.localPosition = Vector3.zero;
+        _head.transform.localRotation = Quaternion.identity;
+    }
+
     public enum PlayerClass
     {
         Knight,

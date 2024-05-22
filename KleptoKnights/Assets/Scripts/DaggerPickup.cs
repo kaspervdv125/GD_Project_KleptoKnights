@@ -25,7 +25,8 @@ public class DaggerPickup : MonoBehaviour, IInteractable
         Classes classes = interactor.GetComponent<Classes>();
         if (classes != null)
         {
-            classes.Class = Classes.PlayerClass.Rogue;
+            //classes.Class = Classes.PlayerClass.Rogue;
+            classes.ChangeClass(Classes.PlayerClass.Rogue);
         }
         Debug.Log("Rogue");
     }

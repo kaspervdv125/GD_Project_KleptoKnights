@@ -29,7 +29,8 @@ public class SwordPickup : MonoBehaviour, IInteractable
         Classes classes = interactor.GetComponent<Classes>();
         if (classes != null)
         {
-            classes.Class = Classes.PlayerClass.Knight;
+            //classes.Class = Classes.PlayerClass.Knight;
+            classes.ChangeClass(Classes.PlayerClass.Knight);
         }
         Debug.Log("Knight!");
     }
