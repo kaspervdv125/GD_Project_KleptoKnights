@@ -1,6 +1,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using Input = UnityEngine.Input;
 
 
@@ -35,6 +36,12 @@ public class Interaction : MonoBehaviour
         set => _isInteracting = value;
     }
 
+    private bool _isPickingUp;
+    private float _timeToPickUp;
+    private float _pickupTimer;
+
+    [SerializeField] private Image _pickupTimerBar;
+
     private void Start()
     {
         _playerNumber = GetComponent<CharacterControl>().PlayerNumber;
@@ -47,9 +54,27 @@ public class Interaction : MonoBehaviour
         Interact();
         DropItem();
 
+        PickupTimerUI();
+
         if (IsInteractUp)
         {
             _interactionTarget?.EndInteract(gameObject);
+            _isPickingUp = false;
+            _pickupTimerBar.gameObject.SetActive(false);
+        }
+    }
+
+    private void PickupTimerUI()
+    {
+        if (!_isPickingUp) return;
+
+        _pickupTimer += Time.deltaTime;
+        _pickupTimerBar.fillAmount = _pickupTimer / _timeToPickUp;
+
+        if (_pickupTimer >= _timeToPickUp)
+        {
+            _isPickingUp = false;
+            _pickupTimerBar.gameObject.SetActive(false);
         }
     }
 
@@ -69,7 +94,18 @@ public class Interaction : MonoBehaviour
 
     private void Interact()
     {
-        if(IsInteractDown && CanInteract) _interactionTarget?.StartInteract(gameObject);
+        if (IsInteractDown && CanInteract)
+        {
+            _interactionTarget.StartInteract(gameObject);
+            
+            if (!_isPickingUp && _interactionTarget.gameObject.CompareTag("PickUp"))
+            {
+                _isPickingUp = true;
+                _timeToPickUp = _interactionTarget.gameObject.GetComponent<ObjectValue>().Value * ObjectValue.ValuePickupTimeMultiplier;
+                _pickupTimer = 0.0f;
+                _pickupTimerBar.gameObject.SetActive(true);
+            }
+        }
 
         if (!CanInteract) // double if statement for easy refactoring later down the line
         {

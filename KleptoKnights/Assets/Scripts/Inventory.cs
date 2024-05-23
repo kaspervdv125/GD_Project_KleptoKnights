@@ -158,7 +158,6 @@ public class Inventory : MonoBehaviour
     // calculates the full bounds of an item's mesh. might produce weird results with odd item shapes.
     private static Bounds GetMaxBounds(GameObject item) 
     {
-    
         Collider collider = item.GetComponent<Collider>();
         collider.transform.rotation = Quaternion.identity;
         Bounds bounds = collider.bounds;

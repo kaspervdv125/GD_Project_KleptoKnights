@@ -38,7 +38,7 @@ public class Pickup1 : MonoBehaviour, IInteractable
     {
         if (pickingUp)
         {
-            if (timer > objectValue.Value / 10)
+            if (timer > objectValue.Value * ObjectValue.ValuePickupTimeMultiplier)
             {
                 PickUpObject.AddItem(this);
                 IsHeld = true;
