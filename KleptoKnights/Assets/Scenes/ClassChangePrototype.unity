@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &90832105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8667506206838614961, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+  m_PrefabInstance: {fileID: 1024968678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &778503075
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +491,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1495800322184330521, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495800322184330521, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.353
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495800322184330521, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8706462
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495800322184330521, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.49190977
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495800322184330521, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 58.932
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272618908785993635, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3438945620340362270, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
       propertyPath: teamNumber
       value: 1
@@ -513,6 +542,22 @@ PrefabInstance:
     - target: {fileID: 7285001689462952437, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7330115346471809559, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: _sword
+      value: 
+      objectReference: {fileID: 1942203314}
+    - target: {fileID: 7330115346471809559, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: _dagger
+      value: 
+      objectReference: {fileID: 90832105}
+    - target: {fileID: 7330115346471809559, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: _hammer
+      value: 
+      objectReference: {fileID: 1894725839}
+    - target: {fileID: 8667506206838614961, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2338484172440284255, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
@@ -737,6 +782,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f9ee6679d6a67e42b711c1c33c95509, type: 3}
+--- !u!1 &1894725839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2272618908785993635, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+  m_PrefabInstance: {fileID: 1024968678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1942203314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6489066370917424799, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+  m_PrefabInstance: {fileID: 1024968678}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950676873
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +938,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1944799434555928006, guid: ac06e1c3db4ed6a46bd3b638a02d910e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.8485174
+      value: 2.51
       objectReference: {fileID: 0}
     - target: {fileID: 1944799434555928006, guid: ac06e1c3db4ed6a46bd3b638a02d910e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -891,7 +946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1944799434555928006, guid: ac06e1c3db4ed6a46bd3b638a02d910e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.2
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 1944799434555928006, guid: ac06e1c3db4ed6a46bd3b638a02d910e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -925,6 +980,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dagger
       objectReference: {fileID: 0}
+    - target: {fileID: 3785893714751207152, guid: ac06e1c3db4ed6a46bd3b638a02d910e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -942,9 +1001,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammer
       objectReference: {fileID: 0}
+    - target: {fileID: 2574169410801631224, guid: efa8e1ab702f3a04fb48c1d6aecd708c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7002197923049202569, guid: efa8e1ab702f3a04fb48c1d6aecd708c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2703285
+      value: 5.56
       objectReference: {fileID: 0}
     - target: {fileID: 7002197923049202569, guid: efa8e1ab702f3a04fb48c1d6aecd708c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1038,6 +1101,10 @@ PrefabInstance:
     - target: {fileID: 5338604104982600702, guid: ee7a2cb43ae525c4faf2740750ce478c, type: 3}
       propertyPath: m_Name
       value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338604104982600702, guid: ee7a2cb43ae525c4faf2740750ce478c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -48,11 +48,19 @@ public class Classes : MonoBehaviour
     [SerializeField] private GameObject _rogueHead;
     [SerializeField] private GameObject _builderHead;
 
+    [SerializeField] private GameObject _sword;
+    [SerializeField] private GameObject _dagger;
+    [SerializeField] private GameObject _hammer;
+
+
     private GameObject _head;
 
     private void Start()
     {
         ChangeClass(PlayerClass.Knight);
+        _sword.SetActive(true);
+        _dagger.SetActive(false);
+        _hammer.SetActive(false);
     }
 
     public void ChangeClass(PlayerClass targetClass)
@@ -77,7 +85,29 @@ public class Classes : MonoBehaviour
         _head.transform.parent = transform;
         _head.transform.localPosition = Vector3.zero;
         _head.transform.localRotation = Quaternion.identity;
+
+        //Switching class should also change the player's weapon
+
+        switch (targetClass)
+        {
+            case PlayerClass.Knight:
+                _sword.SetActive(true);
+                _dagger.SetActive(false);
+                _hammer.SetActive(false);
+                break;
+            case PlayerClass.Rogue:
+                _sword.SetActive(false);
+                _dagger.SetActive(true);
+                _hammer.SetActive(false);
+                break;
+            case PlayerClass.Builder:
+                _sword.SetActive(false);
+                _dagger.SetActive(false);
+                _hammer.SetActive(true);
+                break;
+        }
     }
+
 
     public enum PlayerClass
     {
