@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
+    [SerializeField]
+    public Classes.PlayerClass playerClass;
 
+    //private Classes. player;
 
     [SerializeField]
     private CharacterController _characterController;
 
     [SerializeField]
-    private Classes.Player _playerClass;
+    private Classes _playerClass;
 
     [SerializeField]
     private GameObject _camera;
@@ -45,7 +48,6 @@ public class CharacterControl : MonoBehaviour
     void Start()
     {
         _camera.GetComponent<CameraControl>().PlayerNumber = PlayerNumber;
-        _playerClass = new Classes.Player();
     }
 
     // Update is called once per frame
@@ -57,10 +59,18 @@ public class CharacterControl : MonoBehaviour
 
     }
 
+    //public void PickupItem(Classes.Item item)
+    //{
+    //    player.PickupItem(item);
+    //    playerClass = player.Class;
+    //}
+
     private void LateUpdate()
     {
         CalculateVelocity();
     }
+
+ 
 
     private void CalculateVelocity()
     {

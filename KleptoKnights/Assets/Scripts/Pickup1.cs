@@ -10,11 +10,11 @@ public class Pickup1 : MonoBehaviour, IInteractable
     
     public string Name { get; } = "item";
     public string Verb { get; } = "Pick up";
-    [SerializeField]
-    private ObjectValue objectValue = new ObjectValue();
+
+    [SerializeField] private ObjectValue objectValue;
     
     public bool IsInteractable => !IsHeld;
-    [SerializeField]
+
     private float timer;
     private bool pickingUp;
     private Inventory PickUpObject;
@@ -38,10 +38,11 @@ public class Pickup1 : MonoBehaviour, IInteractable
     {
         if (pickingUp)
         {
-            if (timer > objectValue.Value / 10)
+            if (timer > objectValue.Value * ObjectValue.ValuePickupTimeMultiplier)
             {
                 PickUpObject.AddItem(this);
                 IsHeld = true;
+                pickingUp = false;
                 timer = 0;
             }
             else
@@ -52,8 +53,12 @@ public class Pickup1 : MonoBehaviour, IInteractable
     }
    public void EndInteract(GameObject interactor)
    {
-       IsHeld = false;
         pickingUp = false;
         timer = 0;
    }
+
+   public void Drop(GameObject interactor)
+    {
+        IsHeld = false;
+    }
 }

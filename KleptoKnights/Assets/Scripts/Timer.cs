@@ -13,8 +13,6 @@ public class Timer : MonoBehaviour
 
     private int coinCounter;
 
-    private bool endGame;
-
     [SerializeField]
     private TMP_Text _uiTimer;
 
@@ -63,8 +61,6 @@ public class Timer : MonoBehaviour
                 timerTarget = 0f;
                 this.enabled = false;
             }
-
-            endGame = true;
         }
 
     }
