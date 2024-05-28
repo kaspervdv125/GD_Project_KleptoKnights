@@ -1300,6 +1300,9 @@ MonoBehaviour:
   PlayerNumber: 1
   _velocity: {x: 0, y: 0, z: 0}
   _jumpHeight: 15
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!95 &5487102540826661031
 Animator:
   serializedVersion: 5

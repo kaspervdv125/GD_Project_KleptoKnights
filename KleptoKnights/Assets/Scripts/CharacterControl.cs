@@ -42,6 +42,8 @@ public class CharacterControl : MonoBehaviour
     [SerializeField]
     private float _jumpHeight;
     private bool _isJumping;
+
+    [SerializeField] private LayerMask _groundLayerMask;
     
 
     // Start is called before the first frame update
@@ -87,7 +89,12 @@ public class CharacterControl : MonoBehaviour
     {
         if (Input.GetButtonDown($"Jump {PlayerNumber}"))
         {
-            _isJumping = true;
+            Ray ray = new Ray(transform.position, Vector3.down);
+
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, 0.1f, _groundLayerMask))
+            {
+                _isJumping = true;
+            }
         }
     }
 
