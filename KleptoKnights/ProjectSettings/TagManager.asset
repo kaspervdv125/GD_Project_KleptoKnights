@@ -12,6 +12,7 @@ TagManager:
   - SpawnTeam1
   - SpawnTeam2
   - Team Score Zone
+  - Water
   layers:
   - Default
   - TransparentFX

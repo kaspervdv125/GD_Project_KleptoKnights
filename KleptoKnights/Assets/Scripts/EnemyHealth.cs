@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,10 +49,25 @@ public class EnemyHealth : MonoBehaviour
     {
         // Handle enemy death, such as playing death animation, giving player points, etc.
         // Destroy(gameObject); // Destroy the enemy game object
+        GetComponent<Inventory>().DropAllItems();
+
+        MeshRenderer[] playerVisuals = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer playerVisual in playerVisuals) 
+        { 
+            playerVisual.enabled = false;
+        }
+        GetComponent<CharacterControl>().enabled = false;
+
+        StartCoroutine(Respawn(playerVisuals));
+    }
+
+    private IEnumerator Respawn(MeshRenderer[] playerVisuals)
+    {
+        yield return new WaitForSeconds(2.0f);
 
         var spawn =  GameObject.FindGameObjectWithTag($"SpawnTeam{teamNumber}");
 
-        GetComponent<Inventory>().DropAllItems();
+        GetComponent<CharacterControl>().enabled = true;
 
         GetComponent<CharacterController>().enabled = false;
         gameObject.transform.position = spawn.transform.position;
@@ -59,6 +75,19 @@ public class EnemyHealth : MonoBehaviour
 
         currentHealth = maxHealth;
         Ui.HealthBar.value = currentHealth;
+
+        foreach (MeshRenderer playerVisual in playerVisuals)
+        {
+            playerVisual.enabled = true;
+        }
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Water")
+        {
+            Die();
+        }
+    }
 }
