@@ -41,6 +41,7 @@ public class Interaction : MonoBehaviour
     private float _pickupTimer;
 
     [SerializeField] private Image _pickupTimerBar;
+    [SerializeField] private GameObject _pickupButtonUi;
 
     private void Start()
     {
@@ -55,6 +56,15 @@ public class Interaction : MonoBehaviour
         DropItem();
 
         PickupTimerUI();
+
+        if (CanInteract)
+        {
+            _pickupButtonUi.SetActive(true);
+        }
+        else
+        {
+            _pickupButtonUi.SetActive(false);
+        }
 
         if (IsInteractUp)
         {

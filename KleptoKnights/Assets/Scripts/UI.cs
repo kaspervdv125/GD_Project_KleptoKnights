@@ -9,6 +9,8 @@ public class UI : MonoBehaviour
     public Slider HealthBar;
     public Slider WeightBar;
 
+    [SerializeField] private GameObject _dropButtonUi;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +22,21 @@ public class UI : MonoBehaviour
     {
         WeightBar.value = heldWeight;
         WeightBar.maxValue = weightLimit;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Team Score Zone")
+        {
+            _dropButtonUi.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Team Score Zone")
+        {
+            _dropButtonUi.SetActive(false);
+        }
     }
 }

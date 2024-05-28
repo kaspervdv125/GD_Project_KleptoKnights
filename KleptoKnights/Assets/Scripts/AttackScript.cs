@@ -19,6 +19,8 @@ public class AttackScript : MonoBehaviour
 
     public Image _timerUi;
 
+    [SerializeField] private GameObject _attackButtonUi;
+
     void Start()
     {
         _playerNumber = GetComponent<CharacterControl>().PlayerNumber;
@@ -32,11 +34,23 @@ public class AttackScript : MonoBehaviour
             attackCooldownTimer -= Time.deltaTime;
         }
 
+        // Detect enemies within attack range
+        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+
+        if (hitEnemies.Length > 0)
+        {
+            _attackButtonUi.SetActive(true);
+        }
+        else
+        {
+            _attackButtonUi.SetActive(false);
+        }
+
         if (Input.GetButtonDown($"Attack {_playerNumber}") && attackCooldownTimer <= 0f)
         {
             Debug.Log("Attack");
 
-            Attack();
+            Attack(hitEnemies);
             attackCooldownTimer = attackCooldown;
         }
 
@@ -60,11 +74,9 @@ public class AttackScript : MonoBehaviour
         _timerUi.fillAmount = fraction;
     }
 
-    void Attack()
+    void Attack(Collider[] hitEnemies)
     {
         isAttacking = true;
-        // Detect enemies within attack range
-        Collider[] hitEnemies = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
 
         // Damage each enemy within attack range
         foreach (Collider enemy in hitEnemies)

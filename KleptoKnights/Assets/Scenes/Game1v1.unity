@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37969276, g: 0.48171526, b: 0.53973836, a: 1}
+  m_IndirectSpecularColor: {r: 0.5655957, g: 0.68801385, b: 0.63122386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -359,9 +359,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2979297825394572689, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 14.848999
+      objectReference: {fileID: 0}
     - target: {fileID: 3438945620340362270, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
       propertyPath: teamNumber
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417557225601619872, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4767814510988226706, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
       propertyPath: m_FillAmount
@@ -374,6 +382,10 @@ PrefabInstance:
     - target: {fileID: 6329868590798810515, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6849238180149450360, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 14.848999
       objectReference: {fileID: 0}
     - target: {fileID: 6905265474015494024, guid: cd3a14c5a35202a47b78dd9d426a4a12, type: 3}
       propertyPath: m_AnchorMax.y
@@ -407,7 +419,7 @@ GameObject:
   - component: {fileID: 313268840}
   m_Layer: 0
   m_Name: Team 2
-  m_TagString: Untagged
+  m_TagString: Team Score Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,7 +518,7 @@ GameObject:
   - component: {fileID: 334151680}
   m_Layer: 0
   m_Name: Team 1
-  m_TagString: Untagged
+  m_TagString: Team Score Zone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
