@@ -87,20 +87,15 @@ public class Inventory : MonoBehaviour
 
         if (_items.Count >= 1)
         {
-            var newBounds = GetMaxBounds(newItem.gameObject);
-           //  var lastBounds = GetMaxBounds(_items.Last().gameObject);
-            
-
-            // localOffset.y = lastBounds.extents.y + newBounds.extents.y + _items.Last().transform.localPosition.y;
-            localOffset.y = newBounds.extents.y * 2f;
-            
-            itemTransform.parent = _items.Last().transform;
+           var bounds = GetMaxBounds(_items.Last().gameObject);
+           localOffset.y = bounds.size.y; 
+           itemTransform.parent = _items.Last().transform;
+           
         }
         else
         {
-            var newBounds = GetMaxBounds(newItem.gameObject);
-            //newBounds.center = transform.position;
-            localOffset.y = newBounds.min.y + 1.0f;
+            var bounds = GetMaxBounds(newItem.gameObject);
+            localOffset.y = bounds.extents.y ;
             itemTransform.parent = transform;
         }
 
@@ -115,10 +110,10 @@ public class Inventory : MonoBehaviour
 
         _items.Add(newItem);
 
-        UpdateUi();
+        UpdateUI();
     }
 
-    private void UpdateUi()
+    private void UpdateUI()
     {
         UI ui = GetComponent<UI>();
 
@@ -144,7 +139,7 @@ public class Inventory : MonoBehaviour
 
         _items.Remove(_items.Last());
 
-        UpdateUi();
+        UpdateUI();
     }
 
     public void DropAllItems()
