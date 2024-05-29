@@ -1743,14 +1743,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4554027069349862054, guid: 105cf42a8c7278d4889211d830cdb89d, type: 3}
-      propertyPath: sfxTreasure
-      value: 
-      objectReference: {fileID: 8300000, guid: 893c27c7f0998e545b30c47b53c29200, type: 3}
-    - target: {fileID: 4554027069349862054, guid: 105cf42a8c7278d4889211d830cdb89d, type: 3}
-      propertyPath: TreasureSource
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8000204902098610908, guid: 105cf42a8c7278d4889211d830cdb89d, type: 3}
       propertyPath: m_Name
       value: Pickup_LowValue
@@ -1812,14 +1804,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8810130884376060717, guid: 3d371b963dca10843b9bcd766434af9a, type: 3}
-      propertyPath: sfxTreasure
-      value: 
-      objectReference: {fileID: 8300000, guid: 893c27c7f0998e545b30c47b53c29200, type: 3}
-    - target: {fileID: 8810130884376060717, guid: 3d371b963dca10843b9bcd766434af9a, type: 3}
-      propertyPath: TreasureSource
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1833,14 +1817,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 574951612397636472, guid: b4619fc3a637ced41b43d5768be03db0, type: 3}
-      propertyPath: sfxTreasure
-      value: 
-      objectReference: {fileID: 8300000, guid: 893c27c7f0998e545b30c47b53c29200, type: 3}
-    - target: {fileID: 574951612397636472, guid: b4619fc3a637ced41b43d5768be03db0, type: 3}
-      propertyPath: TreasureSource
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3514005452518147800, guid: b4619fc3a637ced41b43d5768be03db0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.59
