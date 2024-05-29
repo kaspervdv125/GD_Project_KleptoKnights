@@ -18,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
 
     public UI Ui;
 
+    [SerializeField] private AudioSource _audioSource;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -50,6 +52,8 @@ public class EnemyHealth : MonoBehaviour
         // Handle enemy death, such as playing death animation, giving player points, etc.
         // Destroy(gameObject); // Destroy the enemy game object
         GetComponent<Inventory>().DropAllItems();
+
+        _audioSource.Play();
 
         MeshRenderer[] playerVisuals = GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer playerVisual in playerVisuals) 
