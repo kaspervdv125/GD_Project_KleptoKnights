@@ -62,7 +62,15 @@ public class StartScreenScript : MonoBehaviour
     void ExitGame()
     {
         Debug.Log("Exit Game");
-        Application.Quit();
+
+        if (Application.isEditor)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 
     void OpenOptions()
