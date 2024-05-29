@@ -38,6 +38,8 @@ public class CharacterControl : MonoBehaviour
     private Vector3 _lastPosition;
     public Vector3 AverageVelocity => _averageVelocity;
 
+    public AudioSource PlayerAudio;
+    public AudioClip SFXjump;
 
     [SerializeField]
     private float _jumpHeight;
@@ -95,6 +97,8 @@ public class CharacterControl : MonoBehaviour
             {
                 _isJumping = true;
             }
+            PlayerAudio.clip = SFXjump;
+            PlayerAudio.Play();
         }
     }
 

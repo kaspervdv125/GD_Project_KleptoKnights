@@ -14,7 +14,8 @@ public class Pickup1 : MonoBehaviour, IInteractable
     [SerializeField] private ObjectValue objectValue;
     
     public bool IsInteractable => !IsHeld;
-
+    public AudioSource TreasureSource;
+    public AudioClip sfxTreasure;
     private float timer;
     private bool pickingUp;
     private Inventory PickUpObject;
@@ -44,6 +45,8 @@ public class Pickup1 : MonoBehaviour, IInteractable
                 IsHeld = true;
                 pickingUp = false;
                 timer = 0;
+                TreasureSource.clip = sfxTreasure;
+                TreasureSource.Play();
             }
             else
             {

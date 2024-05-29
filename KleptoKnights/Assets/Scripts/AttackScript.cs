@@ -12,7 +12,8 @@ public class AttackScript : MonoBehaviour
     private bool isAttacking = false;
     private float attackCooldownTimer = 0f;
     public float attackCooldown = 1f;
-
+    public AudioSource sfxSource;
+    public AudioClip sfxAttack;
     private int _playerNumber;
 
     Animator animator;
@@ -89,7 +90,9 @@ public class AttackScript : MonoBehaviour
                 
             }
         }
-
+        Debug.Log("SFX");
+        sfxSource.clip = sfxAttack;
+        sfxSource.Play();
         // Set isAttacking to false after attack animation finishes
         Invoke("ResetAttack", 0.5f); // Adjust the delay as per your attack animation length
     }
