@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Net.Sockets;
 using UnityEngine.Audio;
 
 public class StartScreenScript : MonoBehaviour
@@ -68,14 +67,7 @@ public class StartScreenScript : MonoBehaviour
     {
         Debug.Log("Exit Game");
 
-        if (Application.isEditor)
-        {
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
-        else
-        {
-            Application.Quit();
-        }
+        Application.Quit();
     }
 
     void OpenOptions()
@@ -94,12 +86,12 @@ public class StartScreenScript : MonoBehaviour
     void ChangeSound(float value)
     {
         //Debug.Log("Sound: " + value);
-        audioMixer.SetFloat("sfxVolume", value);
+        audioMixer.SetFloat("volumeSFX", value);
     }
 
     void ChangeMusic(float value)
     {
         //gameMusic.volume = value;
-        audioMixer.SetFloat("musicVolume", value);
+        audioMixer.SetFloat("volumeMusic", value);
     }
 }
