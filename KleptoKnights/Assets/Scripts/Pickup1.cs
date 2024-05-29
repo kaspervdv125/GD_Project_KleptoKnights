@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 
 public class Pickup1 : MonoBehaviour, IInteractable
@@ -63,5 +63,14 @@ public class Pickup1 : MonoBehaviour, IInteractable
    public void Drop(GameObject interactor)
     {
         IsHeld = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Water")
+        {
+            Vector2 targetPosition = Random.insideUnitCircle * 10 + new Vector2(-5, 0);
+            transform.position = new Vector3(targetPosition.x, 2.0f, targetPosition.y);
+        }
     }
 }
