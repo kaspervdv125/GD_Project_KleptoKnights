@@ -3908,6 +3908,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: KleptoKnightsMap
       objectReference: {fileID: 0}
+    - target: {fileID: 4811751693120986478, guid: f11323b7af267094e98e67c159d8cb7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811751693120986478, guid: f11323b7af267094e98e67c159d8cb7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9982397
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811751693120986478, guid: f11323b7af267094e98e67c159d8cb7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000003768253
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811751693120986478, guid: f11323b7af267094e98e67c159d8cb7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000000022388742
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811751693120986478, guid: f11323b7af267094e98e67c159d8cb7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.05930956
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811751693120986478, guid: f11323b7af267094e98e67c159d8cb7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 6.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071933455938461947, guid: f11323b7af267094e98e67c159d8cb7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.31
+      objectReference: {fileID: 0}
     - target: {fileID: 8273652343153879143, guid: f11323b7af267094e98e67c159d8cb7e, type: 3}
       propertyPath: MusicSource1
       value: 
