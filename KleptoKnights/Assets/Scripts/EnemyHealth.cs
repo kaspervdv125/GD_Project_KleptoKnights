@@ -53,6 +53,7 @@ public class EnemyHealth : MonoBehaviour
         // Destroy(gameObject); // Destroy the enemy game object
         GetComponent<Inventory>().DropAllItems();
 
+        _audioSource.time = 0.4f;
         _audioSource.Play();
 
         MeshRenderer[] playerVisuals = GetComponentsInChildren<MeshRenderer>();
