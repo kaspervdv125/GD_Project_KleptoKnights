@@ -79,8 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerNumber: 0
   _cameraY: {fileID: 4937126769751130764}
-  _verticalRotationLimit: {x: 10, y: 90}
+  VerticalRotationLimit: {x: 10, y: 90}
   _rotationSpeed: 135
+  TargetYRotation: 20
 --- !u!1 &8494197224159451893
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,8 +142,8 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
+    y: 0.5
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

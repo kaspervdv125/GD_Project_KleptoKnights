@@ -13,13 +13,14 @@ public class CameraControl : MonoBehaviour
 
     private float _rotationHorizontal, _rotationVertical;
 
-    [SerializeField]
-    private Vector2 _verticalRotationLimit;
+    public Vector2 VerticalRotationLimit;
 
     private Vector2 _input;
 
     [SerializeField]
     private float _rotationSpeed;
+
+    public float TargetYRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -138,11 +139,23 @@ public class CameraControl : MonoBehaviour
     private void RotateCamera()
     {
         _rotationHorizontal += _input.x * _rotationSpeed * Time.fixedDeltaTime;
-        _rotationVertical -= _input.y * _rotationSpeed * Time.fixedDeltaTime;
 
-        _rotationVertical = Mathf.Clamp(_rotationVertical, _verticalRotationLimit.x, _verticalRotationLimit.y);
+        float targetYDifference = _input.y * _rotationSpeed * Time.fixedDeltaTime;
+        TargetYRotation -= targetYDifference;
+
+        TargetYRotation = Mathf.Clamp(TargetYRotation, VerticalRotationLimit.x, VerticalRotationLimit.y);
 
         transform.rotation = Quaternion.Euler(0, _rotationHorizontal, 0);
+
+        if (Mathf.Abs(_rotationVertical - TargetYRotation) > targetYDifference)
+        {
+            _rotationVertical = Mathf.Lerp(_rotationVertical, TargetYRotation, 0.1f);
+        }
+        else
+        {
+            _rotationVertical = TargetYRotation;
+        }
+
         _cameraY.localRotation = Quaternion.Euler(_rotationVertical, 0, 0);
     }
 }

@@ -215,4 +215,26 @@ public class CharacterControl : MonoBehaviour
         Walking,
         Running
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Team Score Zone")
+        {
+            CameraControl cameraControl = _camera.GetComponent<CameraControl>();
+
+            cameraControl.VerticalRotationLimit = new Vector2(70, 90);
+            cameraControl.TargetYRotation = Mathf.Max(cameraControl.TargetYRotation, 70);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Team Score Zone")
+        {
+            CameraControl cameraControl = _camera.GetComponent<CameraControl>();
+
+            cameraControl.VerticalRotationLimit = new Vector2(10, 90);
+            cameraControl.TargetYRotation = 30;
+        }
+    }
 }
