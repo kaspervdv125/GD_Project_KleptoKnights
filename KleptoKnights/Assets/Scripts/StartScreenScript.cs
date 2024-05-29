@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Net.Sockets;
+using UnityEngine.Audio;
 
 public class StartScreenScript : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class StartScreenScript : MonoBehaviour
     public Slider musicSlider;
 
     public AudioSource gameMusic;
+
+    public AudioMixerGroup music;
+    public AudioMixerGroup sfx;
+    public AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Start()
@@ -88,11 +93,13 @@ public class StartScreenScript : MonoBehaviour
 
     void ChangeSound(float value)
     {
-        Debug.Log("Sound: " + value);
+        //Debug.Log("Sound: " + value);
+        audioMixer.SetFloat("sfxVolume", value);
     }
 
     void ChangeMusic(float value)
     {
-        gameMusic.volume = value;
+        //gameMusic.volume = value;
+        audioMixer.SetFloat("musicVolume", value);
     }
 }

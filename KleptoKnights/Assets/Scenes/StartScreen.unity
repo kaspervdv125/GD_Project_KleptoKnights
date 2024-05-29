@@ -790,10 +790,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 199135841}
   m_HandleRect: {fileID: 1553718405}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4149,6 +4149,9 @@ MonoBehaviour:
   soundSlider: {fileID: 2057600098}
   musicSlider: {fileID: 362920012}
   gameMusic: {fileID: 2052626985}
+  music: {fileID: -9165719296940717405, guid: 1b913dc103c3e0f43bd66cfaf9dadf7d, type: 2}
+  sfx: {fileID: 5210749350405168265, guid: 1b913dc103c3e0f43bd66cfaf9dadf7d, type: 2}
+  audioMixer: {fileID: 0}
 --- !u!4 &1867369186
 Transform:
   m_ObjectHideFlags: 0
@@ -4460,7 +4463,7 @@ AudioSource:
   m_GameObject: {fileID: 2052626984}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -9165719296940717405, guid: 1b913dc103c3e0f43bd66cfaf9dadf7d, type: 2}
   m_audioClip: {fileID: 8300000, guid: dc62a4371d66f834e827b48e213ba746, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -4573,7 +4576,7 @@ GameObject:
   - component: {fileID: 2057600097}
   - component: {fileID: 2057600098}
   m_Layer: 5
-  m_Name: SliderMusicw (1)
+  m_Name: SliderSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4645,10 +4648,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 2112623019}
   m_HandleRect: {fileID: 2050744044}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
